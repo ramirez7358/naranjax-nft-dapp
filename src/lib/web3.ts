@@ -1,11 +1,15 @@
 import { ethers } from "ethers";
-import { CONTRACT_ADDRESS, CONTRACT_ABI, validateContract } from "./contract";
+import { CONTRACT_ADDRESS, validateContract } from "./contract";
+import {
+  NaranjaXBrandNFT,
+  NaranjaXBrandNFT__factory,
+} from "../typechain-types";
 
 export interface Web3State {
   account: string | null;
   provider: ethers.BrowserProvider | null;
   signer: ethers.JsonRpcSigner | null;
-  contract: ethers.Contract | null;
+  contract: NaranjaXBrandNFT | null;
   chainId: number | null;
   isConnected: boolean;
 }
@@ -93,10 +97,9 @@ export class Web3Manager {
       }
 
       console.log("[v0] Contract validation successful");
-      console.log("[v0] Creating contract instance...");
-      const contract = new ethers.Contract(
+      console.log("[v0] Creating contract instance (typed)...");
+      const contract = NaranjaXBrandNFT__factory.connect(
         CONTRACT_ADDRESS,
-        CONTRACT_ABI,
         signer
       );
 

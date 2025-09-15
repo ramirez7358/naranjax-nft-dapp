@@ -27,7 +27,7 @@ export function Holdings() {
       console.log("[v0] Latest block:", latestBlock)
 
       // Create filter for Transfer events to this address
-      const transferFilter = contract.filters.Transfer(null, account)
+      const transferFilter = contract.filters.Transfer(undefined, account as string)
 
       // Fetch all Transfer events for this address
       const events = await contract.queryFilter(transferFilter, START_BLOCK, latestBlock)
