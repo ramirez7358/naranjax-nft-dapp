@@ -209,7 +209,7 @@ export function MintPanel() {
               variant="outline"
               size="sm"
               onClick={() =>
-                setTokenURI("https://raw.githubusercontent.com/ethereum/EIPs/master/assets/eip-721/example.json")
+                setTokenURI("https://chocolate-frightened-cheetah-718.mypinata.cloud/ipfs/bafkreigplvxbkxvtreiuddkqzslw3w7xwsitlgij3gjc4b5z4cjpruwc7y")
               }
               disabled={!isAuthorizedMinter}
             >
